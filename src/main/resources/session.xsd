@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://microservice.blaszak.pl/session"
+           xmlns:prefix="http://microservice.blaszak.pl/session"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="SessionState" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="REFRESHED" />
+            <xs:enumeration value="EXPIRED" />
+            <xs:enumeration value="NOT_FOUND" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="createSessionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ttl" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createSessionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" minOccurs="0" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="checkSessionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:long" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="checkSessionResponse" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionState" type="prefix:SessionState" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

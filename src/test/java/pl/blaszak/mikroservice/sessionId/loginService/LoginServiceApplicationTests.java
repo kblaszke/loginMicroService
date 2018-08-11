@@ -1,4 +1,4 @@
-package pl.blaszak.mikroservice.loginService;
+package pl.blaszak.mikroservice.sessionId.loginService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package pl.blaszak.mikroservice.loginService;
+package pl.blaszak.mikroservice.sessionId.loginService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
